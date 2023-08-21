@@ -1,14 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import PostHeader from './PostHeader';
 
 function Post({ post, onRemove }) {
     return (
         <>
             <article>
-                <strong>
-                    {post.read ? <s>{ post.title }</s> : post.title}
-                </strong>
-                <button onClick={() => onRemove(post.id) }>Remove</button>
+                <PostHeader
+                    onRemove={onRemove}
+                    post={{
+                        id: post.id,
+                        title: post.title,
+                        read: post.read,
+                    }}
+                />
                 <br />
                 <small>{ post.subtitle }</small>
                 <br />
